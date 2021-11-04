@@ -38,4 +38,6 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
+
+    // Add VM Options Run -> Edit Configuration -> VM Options  --module-path "\path\to\javafx-sdk-17\lib" --add-modules javafx.controls,javafx.fxml
 }
