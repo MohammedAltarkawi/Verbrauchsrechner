@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+group 'org.example'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation('org.junit.jupiter:junit-jupiter:5.8.1')
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testCompileOnly 'junit:junit:4.13.2'
+
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.22'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+}
+
+javafx {
+    version = "17"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+jar {
+    manifest {
+        attributes 'MainClass': 'gui.App'
+    }
+    from {
+        configurations.runtimeClasspath.collect {it.isDirectory() ? it : zipTree(it)}
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
