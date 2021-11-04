@@ -28,15 +28,6 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
-jar {
-    manifest {
-        attributes 'MainClass': 'gui.App'
-    }
-    from {
-        configurations.runtimeClasspath.collect {it.isDirectory() ? it : zipTree(it)}
-    }
-}
-
 test {
     useJUnitPlatform()
 }
